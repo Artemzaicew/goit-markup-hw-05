@@ -33,7 +33,7 @@
                 <div class="container">
                     <h1 class="hero-title">Effective Solutions
                         for Your Business</h1>
-                    <button class="button-service" type="button">Order Service</button>
+                    <button data-modal-open class="button-service" type="button">Order Service</button>
                 </div>
             </section>
             <section class="section section-peculiarity">
@@ -101,28 +101,28 @@
                                     <p>Product Designer</p>
                                     <ul class="list actions">
                                         <li class="social">
-                                            <a class="social-link class="logo"" href="">
+                                            <a class="social-link" href="">
                                                 <svg class="social-icon"> 
                                                     <use href="./images/symbol-defs.svg#icon-instagram"></use>
                                                 </svg>
                                             </a>    
                                         </li>
                                         <li class="social">
-                                            <a  class="social-link class="logo"" href="">
+                                            <a  class="social-link" href="">
                                                 <svg class="social-icon">
                                                     <use href="./images/symbol-defs.svg#icon-twitter"></use>
                                                 </svg>
                                             </a>    
                                         </li>
                                         <li class="social">
-                                            <a  class="social-link class="logo"" href="">
+                                            <a  class="social-link" href="">
                                                 <svg class="social-icon">
                                                     <use href="./images/symbol-defs.svg#icon-facebook"></use>
                                                 </svg>
                                             </a>    
                                         </li>
                                         <li class="social">
-                                            <a  class="social-link class="logo"" href="">
+                                            <a  class="social-link" href="">
                                                 <svg class="social-icon">
                                                     <use href="./images/symbol-defs.svg#icon-linkedin"></use>
                                                 </svg>
@@ -336,5 +336,16 @@
             </div>
         </div>
     </footer>
+    <div class="backdrop is-hiden" data-modal>
+        <div class="modal">
+            <button class="close" data-modal-close>
+                <svg class="close-icon">
+                        <use href="./images/symbol-defs.svg#icon-close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
 </body>
 </html>
