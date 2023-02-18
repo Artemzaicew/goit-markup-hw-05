@@ -20,6 +20,7 @@
     --card-bg-color-hover: #404BBF;
     --logo-bg-color:#8E8F99;
     --social-bg-hover: #31D0AA;
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
  body {
@@ -75,6 +76,7 @@ span {
 
 /* site-nav */
 .site-nav .link {
+    position: relative;
     display: block;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -84,11 +86,32 @@ span {
     font-size: 16px;
     line-height: 1.5;
     text-decoration: none;
+    transition: color var(--transition);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
     color: var(--accent-color);
+}
+
+.site-nav .link::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 4px;
+
+    background-color: var(--card-bg-color-hover);
+    border-radius: 2px;
+
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.site-nav .link:hover::after {
+    opacity: 1;
 }
 
 .site-nav {
@@ -132,6 +155,7 @@ margin-left: auto;
     font-size: 16px;
     line-height: 1.5;
     text-decoration: none;
+    transition: color var(--transition);
 }
 
 .info-nav .link:hover,
@@ -189,6 +213,7 @@ margin-left: auto;
     line-height: 1.5;
     letter-spacing: 0.04em;
     text-align: center;
+    transition: background-color var(--transition);
 
     display: inline-block;
     border-radius: 4px;
@@ -325,6 +350,7 @@ margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color var(--transition);
 }
 
 .social-link:hover,
@@ -370,6 +396,7 @@ margin-left: auto;
     align-items: center;
     width: 100%;
     height: 100%;
+    transition: border var(--transition), color var(--transition);
 }
 
 .logo .logo-icon { 
@@ -450,6 +477,7 @@ margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color var(--transition);
 }
 
 .social-link-footer:hover,
@@ -492,6 +520,7 @@ button*/
     padding: 12px 24px;
     border-radius: 4px;
     border: 1px solid var(--footer-text-color);
+    transition: color var(--transition), background-color var(--transition), box-shadow var(--transition), border var(--transition);
 }
 
 .list .button:hover,
@@ -540,10 +569,6 @@ margin-top: 0;
 margin-bottom: 8px;
 }
 
-.activity-nav .link {
-    text-decoration: none;
-}
-
 .activity-nav .text {
     color: var(--secondary-text-color);
     font-size: 16px;
@@ -576,6 +601,7 @@ margin-bottom: 8px;
 }
 .activity-nav .link {
     display: block;
+    transition: box-shadow var(--transition);
 }
 
 .activity-nav .link:hover,
@@ -586,9 +612,10 @@ margin-bottom: 8px;
 /* hover card-content */
 .product-thumb {
     position: relative;
+    overflow: hidden;
 }
 
-.product-thumb::before {
+/* .product-thumb::before {
     position: absolute;
     display: inline-block;
     content: "";
@@ -596,32 +623,42 @@ margin-bottom: 8px;
     height: 100%;
     top: 0;
     left: 0;
+
     background-color: var(--card-bg-color);
     opacity: 0;
-}
+} */
 
 .overlay {
     display: block;
     position: absolute;
-    top: 40px;
-    left: 32px;
-    max-width: 296px;
-    opacity: 0;
-
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    padding-right: 32px;
+    padding-left: 32px;
+    width: 100%;
+    height: 100%;
     overflow: auto;
+    transform: translate(0, 100%);
+    transition: transform var(--transition);
+
     font-size: 16px;
     line-height: 1.5;
-    letter-spacing: 0.02em;
     color: #F4F4FD;
+    background-color: var(--card-bg-color);
 }  
 
 .activity-nav .link:hover .overlay {
-    opacity: 1;
+    transform: translate(0, 0);
 }
 
-.activity-nav .link:hover .product-thumb::before {
-    opacity: 1;
+.activity-nav .link:focus .overlay {
+    transform: translate(0, 0);
 }
+
+/* .activity-nav .link:hover .product-thumb::before {
+    opacity: 1;
+} */
 
 /* MODAL */
 .backdrop {
@@ -662,10 +699,12 @@ margin-bottom: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
     color:#000000;
     background-color: #E7E9FC;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    transition: color var(--transition), background-color var(--transition);
 }
 
 .close:hover ,
