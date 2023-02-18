@@ -600,26 +600,26 @@ margin-bottom: 8px;
     opacity: 0;
 }
 
-.text-hover {
+.overlay {
     display: block;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 296px;
-    transform: translate(-50%, -50%);
+    top: 40px;
+    left: 32px;
+    max-width: 296px;
     opacity: 0;
 
+    overflow: auto;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #F4F4FD;
 }  
 
-.activity-nav .item:hover .text-hover {
+.activity-nav .link:hover .overlay {
     opacity: 1;
 }
 
-.activity-nav .item:hover .product-thumb::before {
+.activity-nav .link:hover .product-thumb::before {
     opacity: 1;
 }
 
@@ -663,9 +663,15 @@ margin-bottom: 8px;
     justify-content: center;
     align-items: center;
     color:#000000;
-    background: #E7E9FC;
+    background-color: #E7E9FC;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+}
+
+.close:hover ,
+.close:focus {
+    background-color: var(--card-bg-color-hover);
+    color: var(--white-color);
 }
 
 .close .close-icon {
